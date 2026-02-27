@@ -289,7 +289,7 @@ void DAL_PCD_ResetCallback(PCD_HandleTypeDef *hpcd)
     }
     else
     {
-        DAL_ErrorHandler();
+        Error_Handler();
     }
 
     /* Set USB core speed */
@@ -446,7 +446,7 @@ void USBD_HardwareInit(USBD_INFO_T* usbInfo)
         husbDevice.Init.use_dedicated_ep1   = DISABLE;
         if (DAL_PCD_Init(&husbDevice) != DAL_OK)
         {
-            DAL_ErrorHandler();
+            Error_Handler();
         }
 
 #if (USE_DAL_PCD_REGISTER_CALLBACKS == 1U)
@@ -492,7 +492,7 @@ void USBD_HardwareInit(USBD_INFO_T* usbInfo)
         husbDevice.Init.use_external_vbus   = DISABLE;
         if (DAL_PCD_Init(&husbDevice) != DAL_OK)
         {
-            DAL_ErrorHandler( );
+            Error_Handler();
         }
 
 #if (USE_DAL_PCD_REGISTER_CALLBACKS == 1U)

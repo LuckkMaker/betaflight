@@ -27,6 +27,7 @@ STDPERIPH_SRC   = \
         apm32f4xx_dal_flash_ex.c \
         apm32f4xx_dal_flash_ramfunc.c \
         apm32f4xx_dal_gpio.c \
+        apm32f4xx_dal_gpio_ex.c \
         apm32f4xx_dal_hash.c \
         apm32f4xx_dal_hash_ex.c \
         apm32f4xx_dal_hcd.c \
@@ -36,7 +37,6 @@ STDPERIPH_SRC   = \
         apm32f4xx_dal_i2s_ex.c \
         apm32f4xx_dal_irda.c \
         apm32f4xx_dal_iwdt.c \
-        apm32f4xx_dal_log.c \
         apm32f4xx_dal_mmc.c \
         apm32f4xx_dal_nand.c \
         apm32f4xx_dal_nor.c \
@@ -46,6 +46,7 @@ STDPERIPH_SRC   = \
         apm32f4xx_dal_pmu.c \
         apm32f4xx_dal_pmu_ex.c \
         apm32f4xx_dal_qspi.c \
+        apm32f4xx_dal_qspi_ex.c \
         apm32f4xx_dal_rcm.c \
         apm32f4xx_dal_rcm_ex.c \
         apm32f4xx_dal_rng.c \
