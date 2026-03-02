@@ -96,7 +96,8 @@
 
 #endif // APM32F4
 
-#if defined(APM32F405xx) || defined(APM32F407xx) || defined(APM32F415xx) || defined(APM32F417xx)
+#if defined(APM32F405xx) || defined(APM32F407xx) || defined(APM32F415xx) || defined(APM32F417xx) || \
+    defined(APM32F425xx) || defined(APM32F427xx)
 #define USE_FAST_DATA
 
 // Chip Unique ID on APM32F405

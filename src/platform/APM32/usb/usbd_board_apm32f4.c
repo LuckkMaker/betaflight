@@ -141,6 +141,7 @@ void DAL_PCD_MspInit(PCD_HandleTypeDef *hpcd)
         DAL_NVIC_SetPriority(OTG_FS_IRQn, 6, 0);
         DAL_NVIC_EnableIRQ(OTG_FS_IRQn);
     }
+#if defined(USB_OTG_HS)
     else if(hpcd->Instance == USB_OTG_HS)
     {
         /* Configure USB OTG GPIO */
@@ -161,6 +162,7 @@ void DAL_PCD_MspInit(PCD_HandleTypeDef *hpcd)
         DAL_NVIC_SetPriority(OTG_HS_IRQn, 6, 0);
         DAL_NVIC_EnableIRQ(OTG_HS_IRQn);
     }
+#endif /* USB_OTG_HS */
 }
 
 /**
@@ -183,6 +185,7 @@ void DAL_PCD_MspDeInit(PCD_HandleTypeDef *hpcd)
         /* Disable peripheral interrupt */
         DAL_NVIC_DisableIRQ(OTG_FS_IRQn);
     }
+#if defined(USB_OTG_HS)
     else if(hpcd->Instance == USB_OTG_HS)
     {
         /* Disable peripheral clock */
@@ -194,6 +197,7 @@ void DAL_PCD_MspDeInit(PCD_HandleTypeDef *hpcd)
         /* Disable peripheral interrupt */
         DAL_NVIC_DisableIRQ(OTG_HS_IRQn);
     }
+#endif /* USB_OTG_HS */
 }
 
 /**
@@ -474,6 +478,7 @@ void USBD_HardwareInit(USBD_INFO_T* usbInfo)
         /* Start USB device core */
         USBD_StartCallback(usbInfo);
     }
+#if defined(USB_OTG_HS)
     else if (usbInfo->devSpeed == USBD_SPEED_HS)
     {
         husbDevice.pData                    = usbInfo;
@@ -517,6 +522,7 @@ void USBD_HardwareInit(USBD_INFO_T* usbInfo)
         /* Start USB device core */
         USBD_StartCallback(usbInfo);
     }
+#endif /* USB_OTG_HS */
 }
 
 /**

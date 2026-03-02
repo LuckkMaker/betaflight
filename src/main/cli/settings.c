@@ -425,7 +425,7 @@ static const char * const lookupOverclock[] = {
     "108MHZ", "120MHZ"
 #elif defined(STM32F7)
     "240MHZ"
-#elif defined(APM32F405xx) || defined(APM32F407xx)
+#elif defined(APM32F405xx) || defined(APM32F407xx) || defined(APM32F425xx) || defined(APM32F427xx)
     "192MHZ", "216MHZ", "240MHZ"
 #endif
 };

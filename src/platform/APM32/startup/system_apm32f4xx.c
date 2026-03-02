@@ -250,7 +250,6 @@ void DAL_SysClkConfig(void)
 {
     RCM_ClkInitTypeDef RCM_ClkInitStruct = {0U};
     RCM_OscInitTypeDef RCM_OscInitStruct = {0U};
-    RCM_PeriphCLKInitTypeDef PeriphClk_InitStruct = {0U};
 
     uint32_t hse_value = persistentObjectRead(PERSISTENT_OBJECT_HSE_VALUE);
     uint32_t hse_mhz = hse_value / 1000000;
@@ -318,6 +317,7 @@ void DAL_SysClkConfig(void)
 
     uint32_t plli2s_n = (PLLI2S_TARGET_FREQ_MHZ * PLLI2S_R) / pll_input;
 
+    RCM_PeriphCLKInitTypeDef PeriphClk_InitStruct = {0U};
     PeriphClk_InitStruct.PeriphClockSelection   = RCM_PERIPHCLK_I2S;
     PeriphClk_InitStruct.PLLI2S.PLL2A           = plli2s_n;
     PeriphClk_InitStruct.PLLI2S.PLL2C           = PLLI2S_R;
