@@ -567,6 +567,8 @@ USBD_STA_T USBD_SCSI_RequestSense(USBD_INFO_T* usbInfo, uint8_t lun, uint8_t* co
     USBD_STA_T  usbStatus = USBD_OK;
     USBD_MSC_INFO_T* usbDevMSC = (USBD_MSC_INFO_T*)usbInfo->devClass[usbInfo->classID]->classData;
 
+    UNUSED(lun);
+
     if (usbDevMSC == NULL)
     {
         return USBD_FAIL;
@@ -586,8 +588,6 @@ USBD_STA_T USBD_SCSI_RequestSense(USBD_INFO_T* usbInfo, uint8_t lun, uint8_t* co
 
     usbDevMSC->usbDevBOT.data[0] = 0x70;
     usbDevMSC->usbDevBOT.data[7] = USBD_LEN_STD_REQ_SENSE - 6;
-
-    UNUSED(lun);
 
     if ((usbDevMSC->usbDevSCSI.senseHead != usbDevMSC->usbDevSCSI.senseEnd))
     {
@@ -623,9 +623,9 @@ USBD_STA_T USBD_SCSI_StartStopUnit(USBD_INFO_T* usbInfo, uint8_t lun, uint8_t* c
     USBD_STA_T  usbStatus = USBD_OK;
     USBD_MSC_INFO_T* usbDevMSC = (USBD_MSC_INFO_T*)usbInfo->devClass[usbInfo->classID]->classData;
 
-    UNUSED(lun);
-
     uint8_t temp = command[4] & 0x03;
+
+    UNUSED(lun);
 
     if (usbDevMSC == NULL)
     {
